@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatty</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var socket = io.connect("http://" + document.domain + ":" + location.port);
+
+        socket.on("connect", function () {
+            socket.emit('my event', {
+                data: 'User Connected'
+            });
+            // var usr_name = await load_name();
+            // if (usr_name != "") {
+            //     socket.emit("event", {
+            //         message: usr_name + " just connected to the server!",
+            //         connect: true,
+            //     });
+            // }
+            // var form = $( "#msgForm" ).on("submit", function (e) {
+            //     e.preventDefault();
+
+            //     // get input from message box
+            //     let user_name = $( '#username' ).val();
+            //     let user_input = $( '#message' ).val();
+            //     // let user_name = await load_name();
+
+            //     // send message to other users
+            //     socket.emit("my event", {
+            //         message: user_input,
+            //         name: username,
+            //     });
+
+            //     // clear msg box value
+            //     $( '#message' ).val() = '';
+            // });
+        });
+
+        socket.on('my response', function(msg) {
+            if ( typeof msg.name !== "undefined" ) {
+                $('#messages').append($('<p>').text(msg.name + ": " + msg.message));
+            };
+        });
+
+        $("#submitBtn").on('click', function(e) {
+            e.preventDefault();
+
+            let msg_input = $( '#message' ).val();
+
+            $( '#message' ).val('').focus();
+
+            socket.emit("my event", {
+                name: $('#username').val(),
+                message: msg_input
+            });
+        });
+
+        // socket.on("disconnect", function (msg) {
+        //     var usrname = $( '#username' ).val();
+        //     // var user_name = await load_name();
+        //     socket.emit("my event", {
+        //         message: usrname + " just left the server...",
+        //     });
+        // });
+    });
+</script>
+
+<div id="messages">
+
+</div>
+
+<form action="" method="POST" id="msgForm">
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="text" id="message" placeholder="Message" required>
+    <input type="submit" id="submitBtn">
+</form>
+
+
+</body>
+</html>
