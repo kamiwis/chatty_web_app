@@ -12,19 +12,11 @@ body{
     margin-bottom: 30px;
     border-radius: .55rem;
     position: relative;
-    width: 100%;
+    width: 70%;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
 }
-.chat-app .people-list {
-    width: 280px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 20px;
-    z-index: 7
-}
 
-.chat-app .chat {
+/* .chat-app .chat {
     margin-left: 280px;
     border-left: 1px solid #eaeaea
 }
@@ -45,9 +37,9 @@ body{
 .people-list .chat-list li:hover {
     background: #efefef;
     cursor: pointer
-}
+} */
 
-.people-list .chat-list li.active {
+/* .people-list .chat-list li.active {
     background: #efefef
 }
 
@@ -73,7 +65,7 @@ body{
 .people-list .status {
     color: #999;
     font-size: 13px
-}
+} */
 
 .chat .chat-header {
     padding: 15px 20px;
@@ -100,14 +92,14 @@ body{
     padding: 0
 }
 
-.chat .chat-history ul li {
+/* .chat .chat-history ul li {
     list-style: none;
     margin-bottom: 30px
-}
+} */
 
-.chat .chat-history ul li:last-child {
+/* .chat .chat-history ul li:last-child {
     margin-bottom: 0px
-}
+} */
 
 .chat .chat-history .message-data {
     margin-bottom: 15px
@@ -179,7 +171,7 @@ body{
     padding: 20px
 }
 
-.online,
+/* .online,
 .offline,
 .me {
     margin-right: 2px;
@@ -193,14 +185,14 @@ body{
 
 .offline {
     color: #e47297
-}
+} */
 
-.me {
+/* .me {
     color: #1d8ecd
-}
+} */
 
 .float-right {
-    float: right
+    float: right;
 }
 
 .clearfix:after {
@@ -213,7 +205,7 @@ body{
 }
 
 @media only screen and (max-width: 767px) {
-    .chat-app .people-list {
+    /* .chat-app .people-list {
         height: 465px;
         width: 100%;
         overflow-x: auto;
@@ -223,7 +215,7 @@ body{
     }
     .chat-app .people-list.open {
         left: 0
-    }
+    } */
     .chat-app .chat {
         margin: 0
     }
