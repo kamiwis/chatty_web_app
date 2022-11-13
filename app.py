@@ -1,12 +1,16 @@
-# from threading import Lock
-from flask import Flask, render_template, session, redirect, request, url_for, jsonify, flash
+from flask import Flask, render_template, session, redirect, request, url_for,\
+    jsonify
 from flask_socketio import SocketIO, emit
 from flask_bootstrap import Bootstrap
 
-
+# Create and configure app
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
+app = Flask(__name__, instance_relative_config=None)
+app.config.from_object('config.Config')
+
+# Create socketio instance
 socketio = SocketIO(app, cors_allowed_origins="*")
+# Load Bootstrap
 Bootstrap(app)
 
 
@@ -18,12 +22,9 @@ def index():
     """
     if 'NAME' not in session:
         return redirect(url_for('login'))
-    return render_template('index.html', name=session["NAME"],  **{"session": session})
+    return render_template('index.html', name=session["NAME"],
+                           **{"session": session})
 
-
-# @app.route("/chat", methods=["GET", "POST"])
-# def view_chat():
-#     return render_template("chat_app.html", name=session["NAME"])
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -33,30 +34,24 @@ def login():
     if request.method == "POST":
         name = request.form["username"]
         session["NAME"] = name
-        flash(f"You are signed in as {name}")
         return redirect(url_for("index"))
 
     return render_template("login.html", **{"session": session})
 
+
 @app.route("/logout")
 def logout():
     """
-    logs the user out by popping name from session
-    :return: None
+    Logs the user out by popping name from session.
     """
     session.pop("NAME", None)
-    flash("You were logged out.")
     return redirect(url_for("login"))
-
-
-def message_received(msg, methods=["GET", "POST"]):
-    print('Message was received!')
 
 
 @socketio.on('my event')
 def handle_message(json, methods=["GET", "POST"]):
     print('Received event: ' + str(json))
-    emit('my response', json, broadcast=True, callback=message_received)
+    emit('my response', json, broadcast=True)
 
 
 @app.route("/get_name")

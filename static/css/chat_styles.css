@@ -12,70 +12,28 @@ body{
     margin-bottom: 30px;
     border-radius: .55rem;
     position: relative;
-    width: 70%;
+    width: 100%;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
 }
 
-/* .chat-app .chat {
-    margin-left: 280px;
-    border-left: 1px solid #eaeaea
+nav a {
+    font-size: 1.75rem;
 }
 
-.people-list {
-    -moz-transition: .5s;
-    -o-transition: .5s;
-    -webkit-transition: .5s;
-    transition: .5s
+h1 {
+    font-size: 1.75rem;
 }
 
-.people-list .chat-list li {
-    padding: 10px 15px;
-    list-style: none;
-    border-radius: 3px
+.form-control {
+    display: inline !important;
 }
 
-.people-list .chat-list li:hover {
-    background: #efefef;
-    cursor: pointer
-} */
-
-/* .people-list .chat-list li.active {
-    background: #efefef
+.mb-3 .form-control {
+    width: 30%;
 }
 
-.people-list .chat-list li .name {
-    font-size: 15px
-}
-
-.people-list .chat-list img {
-    width: 45px;
-    border-radius: 50%
-}
-
-.people-list img {
-    float: left;
-    border-radius: 50%
-}
-
-.people-list .about {
-    float: left;
-    padding-left: 8px
-}
-
-.people-list .status {
-    color: #999;
-    font-size: 13px
-} */
-
-.chat .chat-header {
-    padding: 15px 20px;
-    border-bottom: 2px solid #f4f7f6
-}
-
-.chat .chat-header img {
-    float: left;
-    border-radius: 40px;
-    width: 40px
+#message {
+    width: 70%;
 }
 
 .chat .chat-header .chat-about {
@@ -91,15 +49,6 @@ body{
 .chat .chat-history ul {
     padding: 0
 }
-
-/* .chat .chat-history ul li {
-    list-style: none;
-    margin-bottom: 30px
-} */
-
-/* .chat .chat-history ul li:last-child {
-    margin-bottom: 0px
-} */
 
 .chat .chat-history .message-data {
     margin-bottom: 15px
@@ -157,39 +106,9 @@ body{
     margin-left: -10px
 }
 
-.chat .chat-history .other-message {
-    background: #e8f1f3;
-    text-align: right
-}
-
-.chat .chat-history .other-message:after {
-    border-bottom-color: #e8f1f3;
-    left: 93%
-}
-
 .chat .chat-message {
     padding: 20px
 }
-
-/* .online,
-.offline,
-.me {
-    margin-right: 2px;
-    font-size: 8px;
-    vertical-align: middle
-}
-
-.online {
-    color: #86c541
-}
-
-.offline {
-    color: #e47297
-} */
-
-/* .me {
-    color: #1d8ecd
-} */
 
 .float-right {
     float: right;
@@ -205,17 +124,6 @@ body{
 }
 
 @media only screen and (max-width: 767px) {
-    /* .chat-app .people-list {
-        height: 465px;
-        width: 100%;
-        overflow-x: auto;
-        background: #fff;
-        left: -400px;
-        display: none
-    }
-    .chat-app .people-list.open {
-        left: 0
-    } */
     .chat-app .chat {
         margin: 0
     }
@@ -226,6 +134,13 @@ body{
         height: 300px;
         overflow-x: auto
     }
+    .mb-3 .form-control {
+        width: 50%;
+    }
+    .card {
+        width: 100%;
+    }
+    
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
@@ -237,6 +152,9 @@ body{
         height: 600px;
         overflow-x: auto
     }
+    .card {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
@@ -247,5 +165,8 @@ body{
     .chat-app .chat-history {
         height: calc(100vh - 350px);
         overflow-x: auto
+    }
+    .card {
+        width: 100%;
     }
 }

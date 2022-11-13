@@ -3,13 +3,27 @@
 {% block title %}Chatty - Login{% endblock %}
 
 {% block body %}
-<div class="container-sm"
-    <div class="row gx-5">
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-md">
+        <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link active" id="logo" aria-current="page" href="#">Chatty</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+          </ul>
+    </div>
+</nav>
+
+<div class="container text-center">
+    <h1>Please enter name to start chatting</h1> <br/>
+    <div class="row align-items-center">
         <div class="col">
-            <form class="login-form" action="" method="POST">
+            <form class="login-form align-self-center" action="" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Name</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter Your Name" minlength="2" required size="20">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter Your Name" minlength="2" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
