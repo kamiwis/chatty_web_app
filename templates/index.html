@@ -10,7 +10,7 @@
 {% block scripts %}
 {{super()}}
 <script type="text/javascript">
-    let loginName = {{ name }}
+    var loginName = '{{ name }}'
 </script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}">
     // async function load_name() {
@@ -115,7 +115,6 @@
 
 
                         <form action="" method="POST" id="msgForm">
-                            <input type="text" id="username" placeholder="Username" required />
                             <input type="text" id="message" placeholder="Message" required />
                             <input type="submit" id="submitBtn" value="Send" />
                         </form>

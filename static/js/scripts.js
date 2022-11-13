@@ -4,7 +4,7 @@ $(document).ready(function() {
 
         socket.on("connect", function () {
             socket.emit('my event', {
-                data: 'User Connected'
+                data: loginName + ' Connected'
             });
     });
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
         $( '#message' ).val('').focus();
 
         socket.emit("my event", {
-            name: $('#username').val(),
+            name: loginName,
             message: msg_input
         });
     });
