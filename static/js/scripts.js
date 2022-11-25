@@ -10,7 +10,9 @@ $(document).ready(function() {
 
     socket.on('my response', function(msg) {
         if ( typeof msg.name !== "undefined" ) {
-            $('#messages').append($('<p>').text(msg.name + ": " + msg.message));
+            var message = $('<p>').text(msg.name + ": " + msg.message)
+            $('#messages').append(message);
+            $('#messages').scrollTop($("#messages").height());
         };
     });
 
@@ -26,4 +28,15 @@ $(document).ready(function() {
             message: msg_input
         });
     });
+
+    // if (scroll) {
+    //     autoScrollToBottom("messsges");
+    // };
+
+    // function autoScrollToBottom(id) {
+    //     var messagesDiv = document.getElementById(id);
+    //     $("#" + id).animate({
+    //         scrollTop: messagesDiv.scrollHeight - messagesDiv.clientHeight,
+    //     }, 500);
+    // };
 });
