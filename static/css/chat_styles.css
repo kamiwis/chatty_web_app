@@ -2,9 +2,11 @@ body{
     background-color: #f4f7f6;
     margin-top:20px;
 }
+
 .nav-link {
     color: white;
 }
+
 .card {
     background: #fff;
     transition: .5s;
@@ -33,7 +35,7 @@ h1 {
 }
 
 #message {
-    width: 70%;
+    width: 90%;
 }
 
 .chat .chat-header .chat-about {
@@ -128,50 +130,24 @@ h1 {
     overflow-y:scroll;
 }
 
-@media only screen and (max-width: 767px) {
-    .chat-app .chat {
-        margin: 0
-    }
-    .chat-app .chat .chat-header {
-        border-radius: 0.55rem 0.55rem 0 0
-    }
-    .chat-app .chat-history {
-        height: 300px;
-        overflow-x: auto
-    }
-    .mb-3 .form-control {
-        width: 50%;
-    }
-    .card {
-        width: 100%;
-    }
-    
+#right {
+    text-align: right;
+    color: cornflowerblue;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-    .chat-app .chat-list {
-        height: 650px;
-        overflow-x: auto
-    }
-    .chat-app .chat-history {
-        height: 600px;
-        overflow-x: auto
-    }
-    .card {
-        width: 100%;
-    }
+#right p {
+    margin-bottom: 0;
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .chat-app .chat-list {
-        height: 480px;
-        overflow-x: auto
-    }
-    .chat-app .chat-history {
-        height: calc(100vh - 350px);
-        overflow-x: auto
-    }
-    .card {
-        width: 100%;
-    }
+#left {
+    text-align: left;
+}
+
+#left p {
+    margin-bottom: 0;
+}
+
+#date-right {
+    text-align: right;
+    color: grey;
 }
